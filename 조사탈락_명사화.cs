@@ -30,11 +30,11 @@ namespace ConsoleApp118
 
                                    //기호
                                    .Replace(".", " ")
+                                   .Replace(", ", " ")
                                    .Replace(",", " ")
                                    .Replace("!", " ")
                                    .Replace("?", " ")
                                    .Replace("·", " ")
-
 
                                    //ㄱ
                                    .Replace("가 ", " ")
@@ -141,7 +141,9 @@ namespace ConsoleApp118
                                    .Replace("나요 ", " ")
                                    .Replace("나이까 ", " ")
                                    .Replace("나이다 ", " ")
+                                   .Replace("난 ", " ")
                                    .Replace("남 ", " ")
+                                   .Replace("냈다 ", " ")
                                    .Replace("냐 ", " ")
                                    .Replace("냐거늘 ", " ")
                                    .Replace("냐거든 ", " ")
@@ -543,6 +545,8 @@ namespace ConsoleApp118
                                    .Replace("도록 ", " ")
                                    .Replace("되 ", " ")
                                    .Replace("되어 ", " ")
+                                   .Replace("되지 ", " ")
+                                   .Replace("될 ", " ")
                                    .Replace("든 ", " ")
                                    .Replace("든가 ", " ")
                                    .Replace("든지 ", " ")
@@ -550,8 +554,6 @@ namespace ConsoleApp118
                                    .Replace("듯이 ", " ")
                                    .Replace("디 ", " ")
                                    .Replace("된 ", " ")
-                                   .Replace("들 ", " ")
-
 
                                    //ㄸ
                                    .Replace("또는 ", " ")
@@ -839,6 +841,7 @@ namespace ConsoleApp118
                                    .Replace("쇠다 ", " ")
                                    .Replace("쇼 ", " ")
                                    .Replace("수 ", " ")
+                                   .Replace("스러워 ", " ")
                                    .Replace("습네 ", " ")
                                    .Replace("습니까 ", " ")
                                    .Replace("습니다 ", " ")
@@ -853,6 +856,7 @@ namespace ConsoleApp118
                                    .Replace("시 ", " ")
                                    .Replace("시압 ", " ")
                                    .Replace("시여 ", " ")
+                                   .Replace("시하는 ", " ")
                                    .Replace("십사 ", " ")
                                    .Replace("십사고 ", " ")
                                    .Replace("십사는 ", " ")
@@ -1015,6 +1019,7 @@ namespace ConsoleApp118
                                    .Replace("인즉슨 ", " ")
                                    .Replace("일랑 ", " ")
                                    .Replace("일랑은 ", " ")
+                                   .Replace("임에도 ", " ")
                                    .Replace("입쇼 ", " ")
 
 
