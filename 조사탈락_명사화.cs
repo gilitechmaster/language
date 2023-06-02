@@ -545,6 +545,7 @@ namespace ConsoleApp118
                                    .Replace("도록 ", " ")
                                    .Replace("되 ", " ")
                                    .Replace("되어 ", " ")
+                                   .Replace("되었던 ", " ")
                                    .Replace("되지 ", " ")
                                    .Replace("될 ", " ")
                                    .Replace("든 ", " ")
