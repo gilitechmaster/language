@@ -251,7 +251,7 @@ namespace App11
 
                         }, StringSplitOptions.None);
 
-                foreach (string B in arr) // 캡슐화의 기본은 백과사전을 기본으로 한다.
+                foreach (string B in arr) // 캡슐화의 기본은 위키백과, 나무위키, 교양서적을 기본으로 한다.
                 {
                     sw.WriteLine("{0}", B
                                .Replace("공간", "[물리학] [수학]")
