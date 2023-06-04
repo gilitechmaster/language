@@ -229,7 +229,7 @@ namespace App11
             await Navigation.PopAsync();
         }
 
-        async void OnCalc2ButtonClicked(object sender, EventArgs e) // 개체분해버튼
+        async void OnCalc2ButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
 
