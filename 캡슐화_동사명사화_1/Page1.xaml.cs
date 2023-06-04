@@ -60,7 +60,7 @@ namespace App11
                         }, StringSplitOptions.None);
 
 
-                foreach (string B in arr)
+                foreach (string B in arr) //조사탈락_동사명사화_1.cs에서 연계하였다.
                 {
                         sw.WriteLine("{0}", B
                                     //ㄱ
