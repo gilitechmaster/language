@@ -54,8 +54,8 @@ namespace App11
                     "?",
                     "! ",
                     "!",
-                    "·", // 법률문서에 사용되는 기호
-                    " "
+                    "·",
+                    //" " //split으로 조건부 단나눔을 안해야 아래 replace가 작동한다.
 
                         }, StringSplitOptions.None);
 
@@ -247,17 +247,32 @@ namespace App11
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    " "
+                    ". ",  // 순차처리하므로 ". "를 앞에해두어야 한다.
+                    ".",
+                    ", ",
+                    ",",
+                    "? ",
+                    "?",
+                    "! ",
+                    "!",
+                    "·",
+                    //" " //split으로 조건부 단나눔을 안해야 아래 replace가 작동한다.
 
                         }, StringSplitOptions.None);
 
-                foreach (string B in arr) // 캡슐화의 기본은 위키백과, 나무위키, 교양서적을 기본으로 한다.
+                foreach (string B in arr) // 캡슐화의 기본은 백과사전을 기본으로 한다.
                 {
-                    sw.WriteLine("{0}", B
+                    sw.WriteLine("{0}", B //한문장에 분류 1개만 나오더라도 다른 문장과 연결하면 전체 분류가 가능할 것이다.
                                .Replace("공간", "[물리학] [수학]")
                                .Replace("논리", "[수학]")
                                .Replace("수량", "[수학]")
                                .Replace("수리논리학", "[수학]")
+                               .Replace("수학", "[수학]")
+                               //앞서 [수학]으로 처리되었으므로 [[수학]]이 됨으로 제외하려 했으나
+                               //수학이라는 단어는 캡슐화로 배제하기에는 너무 범주가 큰 어휘라서 사용한다.
+                               .Replace("양자", "[물리학]")
+                               .Replace("자연", "[과학] [물리학] [수학]")
+                               
                                );
  
                 }
