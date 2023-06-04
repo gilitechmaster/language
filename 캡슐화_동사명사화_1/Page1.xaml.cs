@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Xamarin.Forms;
 
@@ -62,12 +62,10 @@ namespace App11
 
                 foreach (string B in arr)
                 {
-                    sw.WriteLine(B);
-
-                    if (B.Contains("\n")  // replace로 2차처리
-                        )
                         sw.WriteLine("{0}", B
-                          .Replace("\n", "")
+                                   //ㄱ
+                                   .Replace("겠다", "다")
+                                   
                           );
                 }
 
@@ -78,7 +76,7 @@ namespace App11
             await Navigation.PopAsync();
         }
 
-        async void OnCalc2ButtonClicked(object sender, EventArgs e) // 개체분해버튼
+        async void OnCalc2ButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
 
@@ -95,37 +93,16 @@ namespace App11
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    ". ",  // 순차처리하므로 ". "를 앞에해두어야 한다.
-                    ".",
-                    ", ",
-                    ",",
-                    "? ",
-                    "?",
-                    "! ",
-                    "!",
-                    "·", // 법률문서에 사용되는 기호
                     " "
 
                         }, StringSplitOptions.None);
 
                 foreach (string B in arr)
                 {
-
-                    //sw.WriteLine(B);
-
-                    // 개체 + 에너지 = 1최소요소 = NXET
-                    // 개체 = N
-                    // 기호 = X
-                    // 에너지 = E
-                    // 시간 = T
-                    // 1최소요소는 절대요소이다.
-
-                    if (B.EndsWith("사과") == true) // 개체
-                        sw.WriteLine("{0}", B
-                            .Replace("사과", "N")
-                            );
-
-
+                    sw.WriteLine("{0}", B
+                               .Replace("했다면", "하다")
+                               );
+ 
                 }
                 sw.Close();
 
