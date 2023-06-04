@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App11.Page1">
@@ -19,11 +19,11 @@
             <Button Text="저장"
                     Clicked="OnSaveButtonClicked"/>
             <Button Grid.Column="1"
-                    Text="기초분해"
+                    Text="동사명사화"
                     BackgroundColor="LightGoldenrodYellow"
                     Clicked="OnCalc1ButtonClicked"/>
             <Button Grid.Column="2"
-                    Text="개체분해"
+                    Text="캡슐화"
                     BackgroundColor="LightGoldenrodYellow"
                     Clicked="OnCalc2ButtonClicked"/>
             <Button Grid.Column="3"
