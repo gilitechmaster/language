@@ -278,7 +278,9 @@ namespace App11
 
                         }, StringSplitOptions.None);
 
-                foreach (string B in arr) // 캡슐화의 기본은 백과사전을 기본으로 한다.
+                foreach (string B in arr)
+                    // 캡슐화의 기본은 백과사전을 기본으로 한다.
+                    //캡슐화는 말뭉치로 해석할 수 있다.
                 {
                     sw.WriteLine("{0}", B //한문장에 분류 1개만 나오더라도 다른 문장과 연결하면 전체 분류가 가능할 것이다.
                                .Replace("tensor", "[수학]")
@@ -291,18 +293,30 @@ namespace App11
                                .Replace("공리", "[수학]")
                                .Replace("공학", "[공학]")
                                .Replace("과학", "[과학]")
+                               .Replace("귀납", "[언어학] [수학]")
                                .Replace("기하학", "[수학]")
                                .Replace("논리", "[수학]")
+                               .Replace("뉴턴", "[물리학] [수학]")
                                .Replace("대수", "[수학]")
                                .Replace("데카르트", "[수학] [철학]") // 고유명사는 캡슐화가 쉬워지게 한다.
+                               .Replace("동역학", "[물리학]")
                                .Replace("미분", "[수학]")
+                               //.Replace("미분방정식", "[수학]")
+                               //"미분"이라는 단어가 앞서 먼저 나왔으므로 "미분방정식"은 지우도록 한다.
+                               .Replace("무리수", "[수학]")
+                               .Replace("미적분", "[수학]")
+                               .Replace("무한", "[수학]")
+                               .Replace("무한대", "[수학]")
+                               .Replace("무한소", "[수학]")
                                .Replace("물리학", "[물리학]")
                                .Replace("물질", "[과학]")
                                .Replace("범주론", "[수학]")
+                               .Replace("벡터", "[수학]")
                                .Replace("부분집합", "[수학]")
                                .Replace("산수", "[수학]")
                                .Replace("생물", "[생물학]")
                                .Replace("생물학", "[생물학]")
+                               .Replace("선형", "[수학]")
                                .Replace("수량", "[수학]")
                                .Replace("수리", "[수학]")
                                .Replace("수리논리학", "[수학]")
@@ -311,9 +325,14 @@ namespace App11
                                //앞서 [수학]으로 처리되었으므로 [[수학]]이 됨으로 제외하려 했으나
                                //수학이라는 단어는 캡슐화로 배제하기에는 너무 범주가 큰 어휘라서 사용한다.
                                .Replace("숫자", "[수학]")
+                               .Replace("시각", "[생물학]")
+                               .Replace("실수", "[수학]")
                                .Replace("양자", "[물리학]")
                                .Replace("언어", "[언어학]")
+                               .Replace("연역", "[언어학] [수학]")
                                .Replace("우주", "[물리학] [수학]")
+                               .Replace("운동", "[물리학]")
+                               .Replace("유리수", "[수학]")
                                .Replace("유클리드", "[수학]")
                                .Replace("위상", "[수학]")
                                .Replace("의학", "[의학]")
@@ -327,9 +346,13 @@ namespace App11
                                .Replace("철학", "[철학]")
                                .Replace("추상", "[수학]")
                                .Replace("텐서", "[수학]")
+                               .Replace("통계", "[수학]")
                                .Replace("프로그래밍", "[컴퓨터 공학]")
+                               .Replace("푸앵카레", "[수학]")
                                .Replace("컴퓨터", "[컴퓨터 공학]")
                                .Replace("한자", "[언어학]")
+                               .Replace("함수", "[수학]")
+                               .Replace("해석학", "[수학]")
                                .Replace("화학", "[화학]")
                                );
  
