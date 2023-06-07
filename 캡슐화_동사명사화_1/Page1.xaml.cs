@@ -196,6 +196,7 @@ namespace App11
                                    //ㅍ
                                    //ㅎ
                                    .Replace("하고 ", " ")
+                                   .Replace("하고자하다 ", "하다 ")
                                    .Replace("하거나 ", "하다 ")
                                    .Replace("하기 ", "하다 ")
                                    .Replace("하기도 ", "하다 ")
