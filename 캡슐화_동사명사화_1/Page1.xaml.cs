@@ -109,7 +109,7 @@ namespace App11
                                    .Replace("든 ", "들다 ")//"힘든"을 "힘들다"로 바꾸었다.
                                    .Replace("든다던 ", "들다 ") //"만든다던가"에서 "가"를 위에서 처리하고 "든다던"을 처리했다.
                                    .Replace("듯 ", "다 ") //"않듯"에서 어미를 변형시켰다.
-                                                        //ㄹ
+                                   //ㄹ
                                    .Replace("라도 ", " ")
                                    .Replace("려본 ", "리다 ") //"건드러면"에서 어두인 "드"가 아니라 어미인 "려본"을 수정했다.
                                    .Replace("려지다 ", "리다 ")
@@ -265,15 +265,6 @@ namespace App11
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    ". ",  // 순차처리하므로 ". "를 앞에해두어야 한다.
-                    ".",
-                    //", ",
-                    //",",
-                    "? ",
-                    "?",
-                    "! ",
-                    "!",
-                    //"·",
                     " " //split으로 조건부 단나눔을 안해야 아래 replace가 작동한다.
 
                         }, StringSplitOptions.None);
