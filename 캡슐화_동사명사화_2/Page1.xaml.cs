@@ -46,16 +46,7 @@ namespace App11
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    ". ",  // 순차처리하므로 ". "를 앞에해두어야 한다.
-                    ".",
-                    //", ",
-                    //",",
-                    "? ",
-                    "?",
-                    "! ",
-                    "!",
-                    //"·",
-                    //" " //split으로 조건부 단나눔을 안해야 아래 replace가 작동한다.
+                    "ㄱ" //임의의 문자가 없으면 띄어쓰기 기준으로 단나눔이 되어버린다.
 
                         }, StringSplitOptions.None);
 
@@ -64,8 +55,9 @@ namespace App11
                 {
                         sw.WriteLine("{0}", B
 
-                                    //기호
-                                   .Replace(".", "") //마침표 뒤에는 띄어쓰기가 오므로 빈칸으로 한다.
+                                   //기호
+                                   //.Replace(".", "") //마침표 뒤에는 띄어쓰기가 오므로 빈칸으로 한다.
+                                   .Replace(".", " ") //위와 같은 사항이 있으나 맨마지막 문장이 처리가 안되므로 빈칸으로 한다.
                                    .Replace(", ", " ")
                                    .Replace(",", " ")
                                    .Replace("!", " ")
