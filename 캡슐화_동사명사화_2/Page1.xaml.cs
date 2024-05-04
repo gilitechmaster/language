@@ -75,10 +75,12 @@ namespace App11
                                    .Replace("가 ", " ")
                                    .Replace("갈 ", "가다 ")
                                    .Replace("같은 ", "같다 ")
+                                   .Replace("거운 ", "겁다 ") //"뜨거운"을 "뜨겁다"로 동사화
                                    .Replace("게 ", "다 그렇게 ")
                                    //"공부하게"에서 "공부하다"와 "그렇게"를 해체시켰다.
                                    //"가게 했다." 라면 "가다 그렇게했다"가 되므로 "다 그렇게 "라고
                                    //접속서술어, "그렇게" 뒤에 띄어쓰기를 해야만 한다.
+                                   .Replace("겠지만 ", "겠다 ")
                                    .Replace("겠다 ", "다 ")
                                    .Replace("고 ", "다 그리고 ")//"받고"에서 "받다"와 "그리고"를 해체시켰다.
                                    .Replace("고자 ", "다 ") //"가르치고자"에서 "고자"를 "다"로 변형시켰다.
@@ -95,6 +97,7 @@ namespace App11
                                    .Replace("대한 ", "대하다 ")
                                    .Replace("도 ", " ")
                                    .Replace("되 ", " ") //"활용되나"에서 "나"를 위에서 탈락시켰고 "되"를 탈락시킨다.
+                                   .Replace("되면서 ", "되다 ")
                                    .Replace("되어 ", "되다 ")
                                    .Replace("되자 ", "되다 ")
                                    .Replace("된 ", "되다 ")
@@ -111,8 +114,10 @@ namespace App11
                                    .Replace("려진다 ", "리다 ")
                                    .Replace("로 ", " ")
                                    .Replace("룬다 ", "루다 ")
+                                   .Replace("른 ", "르다 ") //"따른"을 "따르다"로 바꾸는데 "어른"도 바뀌므로 어두부터 바꾸는게 맞나 싶다.
                                    .Replace("를 ", " ")
                                    .Replace("리지 ", "리다 ")
+                                   .Replace("리다 ", "다 ")
                                    .Replace("린 ", " ")
                                    //ㅁ
                                    .Replace("만 ", " ")//"이론만"에서 "만"을 탈락시킨다.
@@ -126,6 +131,7 @@ namespace App11
                                    .Replace("반다 ", " ") // "반면", 위에서 "면"을 "다 그러면"으로 수정시키고 남은 "반다"를 소거한다.
                                    .Replace("본다 ", "보다 ") // "본다"에서 ㄴ을 탈락시켰다.
                                    .Replace("볼 ", "보다 ")
+                                   .Replace("부터 ", " ")
                                    //ㅅ
                                    .Replace("싶다다 ", "싶다 ")
                                    //"싶다면"에서 "면"을 위에서 "다"로 변경시켰으므로
@@ -151,6 +157,7 @@ namespace App11
                                    .Replace("에서도 ", " ")
                                    .Replace("에서다 ", " ")
                                    .Replace("와 ", " ")
+                                   .Replace("우기 ", "우다 ")
                                    .Replace("운다 ", "우다 ")
                                    .Replace("워두자 ", "우다 ")//"배워두자"에서 "워두자"를 "두자"로 바꾼다.
                                    .Replace("웠던 ", "우다 ")//"배웠던"에서 "배우다"로 시제를 현재형으로 바꾸었다.
@@ -171,7 +178,7 @@ namespace App11
                                    .Replace("이며 ", "이다 ")
                                    .Replace("이므 ", "이다 ")
                                    .Replace("인데 ", "이다 ")
-                                   .Replace("인데 ", "이다 ")
+                                   .Replace("인 ", "이다 ")
                                    .Replace("있어 ", "있다 ")
                                    .Replace("있어서 ", "있다 ")
                                    .Replace("있으며 ", "있다 ")
@@ -285,16 +292,20 @@ namespace App11
                                .Replace("공학", "[공학]")
                                .Replace("군사학", "[군사학]")
                                .Replace("물리학", "[물리학]")
+                               .Replace("부동산학", "[부동산학]")
                                .Replace("생물학", "[생물학]")
                                .Replace("수학", "[수학]")
+                               .Replace("신학", "[신학]")
                                .Replace("의학", "[의학]")
                                .Replace("인문학", "[인문학]")
                                .Replace("정치학", "[정치학]")
                                .Replace("철학", "[철학]")
+                               .Replace("행정학", "[행정학]")
                                .Replace("화학", "[화학]")
 
                                //소분류
                                .Replace("CEO", "[경영학]")
+                               .Replace("GTX", "[부동산학]")
                                .Replace("Microsoft", "[경영학]")
                                .Replace("physics", "[물리학]")
                                .Replace("tensor", "[수학]")
@@ -308,10 +319,12 @@ namespace App11
                                .Replace("공간", "[물리학] [수학]")
                                .Replace("공리", "[수학]")
                                .Replace("공식", "[수학]")
+                               .Replace("교통", "[부동산학]")
                                .Replace("국회", "[정치학]")
                                .Replace("국민의힘", "[정치학]")
                                .Replace("군단장", "[군사학]")
                                .Replace("귀납", "[언어학] [수학]")
+                               .Replace("급락", "[수학]")
                                .Replace("기업", "[경영학]")
                                .Replace("기자회견", "[사회학]")
                                .Replace("기하학", "[수학]")
@@ -327,6 +340,8 @@ namespace App11
                                .Replace("링크드인", "[경영학]")
                                .Replace("마르코프", "[수학]")
                                .Replace("만물", "[물리학]")
+                               .Replace("매도세", "[경영학]")
+                               .Replace("매출액", "[경영학]")
                                .Replace("미분", "[수학]")
                                //.Replace("미분방정식", "[수학]")
                                //"미분"이라는 단어가 앞서 먼저 나왔으므로 "미분방정식"은 지우도록 한다.
@@ -335,6 +350,7 @@ namespace App11
                                .Replace("무한", "[수학]")
                                .Replace("무한대", "[수학]")
                                .Replace("무한소", "[수학]")
+                               .Replace("문화", "[인문학]")
                                .Replace("물리", "[물리학]")
                                .Replace("물질", "[물리학]")
                                .Replace("방정식", "[수학]")
@@ -343,11 +359,13 @@ namespace App11
                                .Replace("벡터", "[수학]")
                                .Replace("병원", "[의학]")
                                .Replace("부분집합", "[수학]")
+                               .Replace("부촌", "[부동산학]")
                                .Replace("사물", "[물리학]")
                                .Replace("사업", "[경영학]")
                                .Replace("사단장", "[군사학]")
                                .Replace("산수", "[수학]")
                                .Replace("상대성이론", "[물리학]")
+                               .Replace("상업", "[부동산학]")
                                .Replace("생명", "[생물학]")
                                .Replace("생물", "[생물학]")
                                .Replace("선형", "[수학]")
@@ -357,6 +375,7 @@ namespace App11
                                .Replace("수리논리학", "[수학]")
                                .Replace("수식", "[수학]")
                                .Replace("숫자", "[수학]")
+                               .Replace("스타벅스", "[경영학]")
                                .Replace("시각", "[생물학]")
                                .Replace("시간", "[물리학]")
                                .Replace("실수", "[수학]")
@@ -381,6 +400,8 @@ namespace App11
                                .Replace("윤석열", "[정치학]")
                                .Replace("위상", "[수학]")
                                .Replace("윈도우", "[컴퓨터 공학]")
+                               .Replace("응급실", "[의학]")
+                               .Replace("의대", "[의학]")
                                .Replace("의료", "[의학]")
                                .Replace("이공", "[수학] [물리학] [공학]")
                                .Replace("이과", "[물리학] [수학]")
@@ -391,9 +412,13 @@ namespace App11
                                .Replace("정수", "[수학]")//수에서 정수가 있으나, 핵심 요지에서 정수도 있다.
                                .Replace("정신", "[철학]")
                                .Replace("조건", "[수학]")
+                               .Replace("주가", "[경영학]")
+                               .Replace("주거", "[부동산학]")
+                               .Replace("진료", "[의학]")
                                .Replace("집합", "[수학]")
                                .Replace("집합론", "[수학]")
                                .Replace("차원", "[수학]")
+                               .Replace("체인점", "[경영학]")
                                .Replace("초끈이론", "[물리학]")
                                .Replace("추상", "[수학]")
                                .Replace("측도", "[수학]")
@@ -406,14 +431,17 @@ namespace App11
                                .Replace("푸앵카레", "[수학]")
                                .Replace("컴퓨터", "[컴퓨터 공학]")
                                .Replace("클라우드", "[컴퓨터 공학]")
+                               .Replace("하락", "[수학]")
                                .Replace("한자", "[언어학]")
                                .Replace("함수", "[수학]")
                                .Replace("해석학", "[수학]")
                                .Replace("해병", "[군사학]")
                                .Replace("해병대", "[군사학]")
+                               .Replace("행정", "[행정학]")
                                .Replace("형이상학", "[수학]")
                                .Replace("혼란", "[철학]")
                                .Replace("확률", "[수학]")
+                               .Replace("환자", "[의학]")
                                .Replace("힘", "[물리학]")
                                );
  
