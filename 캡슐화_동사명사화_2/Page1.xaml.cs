@@ -72,6 +72,8 @@ namespace App11
                                    .Replace(":", "")
                                    .Replace("#", "")
 
+                                   //단순동사화도 제외해서 모두 명사화로 처리하는게 더 나을지 고민하자.
+
                                    //ㄱ
                                    .Replace("가 ", " ")
                                    .Replace("갈 ", "가다 ")
