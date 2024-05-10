@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using Xamarin.Forms;
 
@@ -64,18 +64,20 @@ namespace App11
                         }, StringSplitOptions.None);
 
 
-                foreach (string B in arr) //다중if의 구조가 방대해지면 버려지는 어휘가 없을 것이다.
+                foreach (string B in arr)
+                    //다중if의 구조가 방대해지면 버려지는 어휘가 없을 것이다.
+                    //시작자 중간자 끝자를 고려하기 위하여 indexof를 적용시켰다.
                 {
-                        
-                    if (B.LastIndexOf("거느") >= 0)
+
+                    if (B.IndexOf("거느") >= 0) //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
                         sw.WriteLine(B
                             .Replace("거느린", "거느리다")
                             );
-                    if (B.LastIndexOf("다") >= 0)
+                    if (B.IndexOf("다") >= 1) //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
                         sw.WriteLine(B
                             .Replace("었다", "다")
                             );
-                    if (B.LastIndexOf("이") >= 0)
+                    if (B.IndexOf("이") >= 1) //"이빨이 아프다" 라는 문장은 드문 경우다.
                         sw.WriteLine(B
                             .Replace("이", "")
                             );
@@ -88,7 +90,7 @@ namespace App11
             await Navigation.PopAsync();
         }
 
-        async void OnCalc2ButtonClicked(object sender, EventArgs e) 
+        async void OnCalc2ButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
 
@@ -110,8 +112,8 @@ namespace App11
                         }, StringSplitOptions.None);
 
                 foreach (string B in arr)
-                    // 캡슐화의 기본은 백과사전을 기본으로 한다.
-                    //캡슐화는 말뭉치로 해석할 수 있다.
+                // 캡슐화의 기본은 백과사전을 기본으로 한다.
+                //캡슐화는 말뭉치로 해석할 수 있다.
                 {
                     sw.WriteLine("{0}", B
                                //아래 주석처럼 고찰할 내용이 있는 어휘는 어휘 뒤에 주석으로 의견을 달아두었다.
@@ -402,9 +404,9 @@ namespace App11
                                //.Replace("입", "[해부학]") //입이라는 단어는 해부학 말고 자주 쓰일듯 하므로 주석처리한다.
                                .Replace("입시", "[교육학]")
                                .Replace("입자", "[물리학]") //입자는 화학이라 보지만 입자물리학 떄문에 물리학으로 한다.
-                               //.Replace("일", "[물리학]")
-                               //물리학에서 일이라는 단어보다 날짜에서 일이라는 단어가 더 자주 쓰이므로
-                               //물리학에서 일이라는 단어는 주석처리 한다.
+                                                       //.Replace("일", "[물리학]")
+                                                       //물리학에서 일이라는 단어보다 날짜에서 일이라는 단어가 더 자주 쓰이므로
+                                                       //물리학에서 일이라는 단어는 주석처리 한다.
 
                                //ㅈ
                                .Replace("자연", "[물리학]")
@@ -508,7 +510,7 @@ namespace App11
                                .Replace("희귀암", "[의학]")
                                .Replace("힘", "[물리학]")
                                );
- 
+
                 }
                 sw.Close();
 
@@ -517,7 +519,7 @@ namespace App11
             await Navigation.PopAsync();
         }
 
-       
+
         async void OnDeleteButtonClicked(object sender, EventArgs e) // 삭제버튼
         {
             var note = (Note)BindingContext;
