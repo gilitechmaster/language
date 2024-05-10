@@ -81,28 +81,90 @@ namespace App11
                 {
 
                     //동사
+                    //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
+                    //"거느린"을 "거느리ㄴ"으로 자모해체도 하였다.
+                    //자모를 해체해두면 나중에 어휘를 중간에 추가삽입할 때 편리할 것이다.
+                    //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
+
                     if (B.IndexOf("거느") >= 0)
-                        //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
                         sw.WriteLine(B
-                            .Replace("거느린", "거느리다")
+                            .Replace("거느린", "거느리ㄴ")
+                            .Replace("거느리ㄴ", "거느리다")
                             );
                     else if (B.IndexOf("다") >= 1)
-                        //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
                         sw.WriteLine(B
                             .Replace("었다", "다")
                             .Replace("이다", "")
                             );
+                    else if (B.IndexOf("없") >= 0)
+                        sw.WriteLine(B
+                            .Replace("없는건", "없는거ㄴ")
+                            .Replace("없는거ㄴ", "없는거")
+                            .Replace("없는거", "없는")
+                            .Replace("없는", "없다")
+                            );
 
                     //조사
+                    //indexof는 자모순서로 배열하면 안된다. "돈과나다"라는 단어는 "과"먼저 처리되기 때문이다.
+                    //언어규칙은 부정확하지만 동사를 우선 조사를 나중에 처리한다.
+                    //조사 앞에는 중간자가 없고 뒤에는 항상 띄어쓰기가 오므로 조사 후처리가 정확하다고 본다.
+
+                    else if (B.IndexOf("가") >= 1)
+                        sw.WriteLine(B
+                            .Replace("가", "")
+                            );
                     else if (B.IndexOf("과") >= 1)
-                        //indexof는 자모순서로 배열하면 안된다. "돈과나다"라는 단어는 "과"먼저 처리되기 때문이다.
-                        //언어규칙은 부정확하지만 동사를 우선 조사를 나중에 처리한다.
+                        
                         sw.WriteLine(B
                             .Replace("과", "")
+                            );
+                    else if (B.IndexOf("까지") >= 1)
+                        sw.WriteLine(B
+                            .Replace("까지", "")
+                            );
+                    else if (B.IndexOf("는") >= 1)
+                        sw.WriteLine(B
+                            .Replace("는", "")
+                            );
+                    else if (B.IndexOf("로") >= 1)
+                        sw.WriteLine(B
+                            .Replace("로", "")
+                            );
+                    else if (B.IndexOf("를") >= 1)
+                        sw.WriteLine(B
+                            .Replace("를", "")
+                            );
+                    else if (B.IndexOf("부터") >= 1)
+                        sw.WriteLine(B
+                            .Replace("부터", "")
+                            );
+                    else if (B.IndexOf("에게") >= 1)
+                        sw.WriteLine(B
+                            .Replace("에게", "")
+                            );
+                    else if (B.IndexOf("에서") >= 1)
+                        sw.WriteLine(B
+                            .Replace("에서", "")
+                            );
+                    else if (B.IndexOf("와") >= 1)
+                        sw.WriteLine(B
+                            .Replace("와", "")
                             );
                     else if (B.IndexOf("이") >= 1)
                         sw.WriteLine(B
                             .Replace("이", "")
+                            );
+                    else if (B.IndexOf("은") >= 1)
+                        sw.WriteLine(B
+                            .Replace("은", "")
+                            );
+                    else if (B.IndexOf("을") >= 1)
+                        sw.WriteLine(B
+                            .Replace("을", "")
+                            );
+                    else if (B.IndexOf("조차") >= 1)
+                        sw.WriteLine(B
+                            .Replace("조차", "")
                             );
                 }
 
