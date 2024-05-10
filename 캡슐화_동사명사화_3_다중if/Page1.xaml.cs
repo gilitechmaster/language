@@ -80,16 +80,27 @@ namespace App11
                 
                 {
 
-                    if (B.IndexOf("거느") >= 0) //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
+                    //동사
+                    if (B.IndexOf("거느") >= 0)
+                        //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
                         sw.WriteLine(B
                             .Replace("거느린", "거느리다")
                             );
-                    else if (B.IndexOf("다") >= 1) //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
+                    else if (B.IndexOf("다") >= 1)
+                        //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
                         sw.WriteLine(B
                             .Replace("었다", "다")
                             .Replace("이다", "")
                             );
-                    else if (B.IndexOf("이") >= 1) //"이빨이 아프다" 라는 문장은 드문 경우다.
+
+                    //조사
+                    else if (B.IndexOf("과") >= 1)
+                        //indexof는 자모순서로 배열하면 안된다. "돈과나다"라는 단어는 "과"먼저 처리되기 때문이다.
+                        //언어규칙은 부정확하지만 동사를 우선 조사를 나중에 처리한다.
+                        sw.WriteLine(B
+                            .Replace("과", "")
+                            );
+                    else if (B.IndexOf("이") >= 1)
                         sw.WriteLine(B
                             .Replace("이", "")
                             );
