@@ -64,7 +64,7 @@ namespace App11
                         }, StringSplitOptions.None);
 
 
-                foreach (string B in arr) //조사탈락_동사명사화_1.cs에서 연계하였다.
+                foreach (string B in arr)
                 {
                         
                     if (B.LastIndexOf("거느") >= 0)
