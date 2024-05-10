@@ -64,7 +64,7 @@ namespace App11
                         }, StringSplitOptions.None);
 
 
-                foreach (string B in arr)
+                foreach (string B in arr) //다중if의 구조가 방대해지면 버려지는 어휘가 없을 것이다.
                 {
                         
                     if (B.LastIndexOf("거느") >= 0)
