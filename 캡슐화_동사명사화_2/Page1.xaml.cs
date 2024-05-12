@@ -96,10 +96,12 @@ namespace App11
                                .Replace("기 ", "다 ")//"잦기"를 "잦다"로 바꾼다.
                                .Replace("까지 ", " ")
                                .Replace("꼈다 ", "끼다 ")
+
                                //ㄴ
                                .Replace("나 ", " ")
                                .Replace("는 ", "다 ")
                                .Replace("는데 ", "다 ")
+                               .Replace("는지 ", "다 ")
                                .Replace("닌 ", "니다 ")
                                //ㄷ
                                .Replace("대한 ", "대하다 ")
@@ -107,6 +109,7 @@ namespace App11
                                .Replace("됐다 ", "돼다 ")
                                .Replace("되 ", " ") //"활용되나"에서 "나"를 위에서 탈락시켰고 "되"를 탈락시킨다.
                                .Replace("되면서 ", "되다 ")
+                               .Replace("되었다 ", "되다 ")
                                .Replace("되어 ", "되다 ")
                                .Replace("되자 ", "되다 ")
                                .Replace("된 ", "되다 ")
@@ -144,6 +147,7 @@ namespace App11
                                .Replace("볼 ", "보다 ")
                                .Replace("부터 ", " ")
                                //ㅅ
+                               .Replace("수 ", "")
                                .Replace("시키다 ", "하다 ")
                                .Replace("싶다다 ", "싶다 ")
                                //"싶다면"에서 "면"을 위에서 "다"로 변경시켰으므로
@@ -181,6 +185,7 @@ namespace App11
                                .Replace("으로 ", " ")
                                .Replace("은 ", " ")
                                //"좋은"과 "사람은" 2가지 다른 어휘가 생성되서 처리에 문제가 생긴다.
+                               .Replace("을까 ", "다 ")
                                .Replace("을 ", " ")
                                .Replace("의 ", " ")
                                .Replace("이 ", " ")
@@ -194,15 +199,17 @@ namespace App11
                                .Replace("이므 ", "이다 ")
                                .Replace("이었다 ", "이다 ")
                                .Replace("인데 ", "이다 ")
-                               .Replace("인 ", "이다 ")
+                               //.Replace("인 ", " ") "디자인"이라는 글자 때문에 지운다.
                                .Replace("있어 ", "있다 ")
                                .Replace("있어서 ", "있다 ")
+                               .Replace("있었다 ", "있다 ")
                                .Replace("있으며 ", "있다 ")
                                .Replace("있지 ", "있다 ")
-                               //.Replace("인 ", " ") "디자인"이라는 글자 때문에 지운다.
+                               
                                //ㅈ
-                               .Replace("적 ", " ")
                                .Replace("적인 ", " ")
+                               .Replace("적 ", " ")
+                               .Replace("조차 ", " ")
                                .Replace("지 ", "다 ") //"많지"에서 어미를 소거했다.
                                .Replace("지느냐 ", "지다 ")
                                .Replace("지만 ", "이다 ")
@@ -210,12 +217,19 @@ namespace App11
                                .Replace("진 ", "다 ") // "많진"에서 어미 "진'을 수정했다.
                                .Replace("진다다 ", "지다 ")
                                .Replace("질수록 ", "지다 ")
+
                                //ㅊ
+                               .Replace("처럼 ", " ")
                                .Replace("쳐서 ", "지다 ")
                                .Replace("쳐 ", "치다 ") //"다쳐"는 "다치다"로 바꾼다.
-                                                     //ㅌ
-                                                     //ㅍ
+
+                               //ㅋ
+                               .Replace("켜 ", "키다 ")
+
+                               //ㅌ
+                               //ㅍ
                                .Replace("피던 ", "피다 ")
+                               
                                //ㅎ
                                .Replace("하고 ", " ")
                                .Replace("하고자하다 ", "하다 ")
