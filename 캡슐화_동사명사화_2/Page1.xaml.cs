@@ -46,7 +46,7 @@ namespace App11
                 StreamWriter sw = new StreamWriter(filename, true);
                 string[] arr = note.Text.Split(new string[]{
 
-                    "ㄱ" //임의의 문자가 없으면 띄어쓰기 기준으로 단나눔이 되어버린다.
+                    ""
 
                         }, StringSplitOptions.None);
 
