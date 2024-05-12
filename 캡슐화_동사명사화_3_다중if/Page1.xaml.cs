@@ -107,10 +107,19 @@ namespace App11
                             .Replace("내려ㅆ다", "내려다")
                             .Replace("내려다", "내리다")
                             );
+                    else if (B.IndexOf("낼") >= 0)
+                        sw.WriteLine(B
+                            .Replace("낼", "내ㄹ다")
+                            .Replace("내ㄹ다", "내다")
+                            );
                     else if (B.IndexOf("달라") >= 0)
                         sw.WriteLine(B
                             .Replace("달라진다", "달라지ㄴ다")
                             .Replace("달라지ㄴ다", "달라지다")
+                            );
+                    else if (B.IndexOf("달리") >= 0)
+                        sw.WriteLine(B
+                            .Replace("달리", "다르다")
                             );
                     else if (B.IndexOf("막혀") >= 0)
                         sw.WriteLine(B
@@ -119,6 +128,11 @@ namespace App11
                     else if (B.IndexOf("막히") >= 0)
                         sw.WriteLine(B
                             .Replace("막히지", "막히다")
+                            .Replace("막히다", "막다")
+                            );
+                    else if (B.IndexOf("많") >= 0)
+                        sw.WriteLine(B
+                            .Replace("많기", "많다")
                             );
                     else if (B.IndexOf("않") >= 0)
                         sw.WriteLine(B
@@ -137,10 +151,11 @@ namespace App11
                             );
 
                     //끝자
-                    else if (B.IndexOf("기") >= 1)
-                        sw.WriteLine(B
-                            .Replace("기", "다")
-                            );
+                    //else if (B.IndexOf("기") >= 1)
+                    //"많기"를 처리하지만 "조음기관"도 처리되므로 주석처리한다.
+                    //    sw.WriteLine(B
+                    //        .Replace("기", "다")
+                    //        );
                     else if (B.IndexOf("다") >= 1)
                         //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
                         sw.WriteLine(B
@@ -191,10 +206,10 @@ namespace App11
                             );
                     else if (B.IndexOf("는") >= 1)
                         sw.WriteLine(B
-                            .Replace("라는", "")
-                            .Replace("에서는", "")
+                            .Replace("라는", "는")
+                            .Replace("에서는", "는")
                             //"에서는"은 끝자가 "는"이므로 "에서"가 아니라 "는"에서 처리한다.
-                            .Replace("는", "")
+                            .Replace("는", "다")
                             );
                     else if (B.IndexOf("로") >= 1)
                         sw.WriteLine(B
@@ -368,6 +383,7 @@ namespace App11
                                .Replace("신문방송학", "[신문방송학]")
                                .Replace("신학", "[신학]")
                                .Replace("심리학", "[심리학]")
+                               .Replace("언어학", "[언어학]")
                                .Replace("음악학", "[음악학]")
                                .Replace("의학", "[의학]")
                                .Replace("인문학", "[인문학]")
@@ -479,6 +495,7 @@ namespace App11
                                .Replace("매도세", "[경영학]")
                                .Replace("매출액", "[경영학]")
                                .Replace("매출", "[경영학]")
+                               .Replace("모음", "[언어학]")
                                .Replace("몸", "[의학]")
                                .Replace("무리수", "[수학]")
                                .Replace("무릎", "[해부학]")
@@ -629,6 +646,7 @@ namespace App11
 
                                //ㅈ
                                .Replace("자연", "[물리학]")
+                               .Replace("자음", "[언어학]")
                                .Replace("전기", "[물리학]")
                                .Replace("전자기학", "[물리학]")
                                .Replace("전자", "[물리학]")
