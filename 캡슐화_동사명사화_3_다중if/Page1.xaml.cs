@@ -86,17 +86,21 @@ namespace App11
 
                     //시작자
 
-                    //"거느린"을 "거느리ㄴ"으로 자모해체도 하였다.
-                    //자모를 해체해두면 나중에 어휘를 중간에 추가삽입할 때 편리할 것이다.
+                        //"거느린"을 "거느리ㄴ"으로 자모해체도 하였다.
+                        //자모를 해체해두면 나중에 어휘를 중간에 추가삽입할 때 편리할 것이다.
 
-                    //동사명사화이므로 동사가 탈락변형되거나 조사가 탈락된다.
-                    //즉 동사부분과 조사부분만 처리하면 동사명사화가 된다.
+                        //동사명사화이므로 동사가 탈락변형되거나 조사가 탈락된다.
+                        //즉 동사부분과 조사부분만 처리하면 동사명사화가 된다.
 
-                    //다중if를 시작자로할지 끝자로할지 고민을 하였다.
-                    //예를들면 "내렸다"는 "내렸"도 되고 "렸다"도 된다.
-                    //그럴때 시작자로 처리하도록 임시로 지정하였다.
+                        //다중if를 시작자로할지 끝자로할지 고민을 하였다.
+                        //예를들면 "내렸다"는 "내렸"도 되고 "렸다"도 된다.
+                        //그럴때 시작자로 처리하도록 임시로 지정하였다.
 
-                    if (B.IndexOf("거느") == 0)
+                    if (B.IndexOf("같") == 0)
+                        sw.WriteLine(B
+                            .Replace("같은", "같다")
+                            );
+                    else if (B.IndexOf("거느") == 0)
                         //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
                         //"거"로하면 걸리는게 많아서 안된다.
                         sw.WriteLine(B
@@ -151,6 +155,10 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("의해", "의하다")
                             );
+                    else if (B.IndexOf("하였") == 0)
+                        sw.WriteLine(B
+                            .Replace("하였다", "하다")
+                            );
 
                     //중간자 혹은 끝자
 
@@ -160,12 +168,14 @@ namespace App11
                     //    sw.WriteLine(B
                     //        .Replace("기", "다")
                     //        );
-                    else if (B.IndexOf("다") >= 1)
-                        //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
-                        sw.WriteLine(B
-                            .Replace("었다", "다")
-                            .Replace("이다", "")
-                            );
+
+                    //else if (B.IndexOf("다") >= 1)
+                    //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
+                    //"-다"는 다른 어휘로 처리할 경우가 많으므로 제외한다.
+                    //    sw.WriteLine(B
+                    //        .Replace("었다", "다")
+                    //        .Replace("이다", "")
+                    //        );
                     else if (B.IndexOf("란") >= 1)
                         sw.WriteLine(B
                             .Replace("란", "")
@@ -178,7 +188,7 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("에", "")
                             );
-                    else if (B.IndexOf("의") >= 0)
+                    else if (B.IndexOf("의") >= 1)
                         sw.WriteLine(B
                             .Replace("의", "")
                             );
@@ -247,7 +257,7 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("와", "")
                             );
-                    
+
                     else if (B.IndexOf("은") >= 1)
                         sw.WriteLine(B
                             .Replace("은", "")
