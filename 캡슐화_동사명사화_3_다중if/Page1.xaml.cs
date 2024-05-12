@@ -80,6 +80,8 @@ namespace App11
 
                 //if문의 순서상 시작자를 먼저 처리하고 조사를 끝자로 나중에 처리한다.
 
+                //각종 어휘를 명사화시킬 수 있지만 초기조건이 단순히 명사이면 그냥 소거되는 부분은 해결할 수 없다.
+
                 {
 
                     //시작자
@@ -94,65 +96,67 @@ namespace App11
                     //예를들면 "내렸다"는 "내렸"도 되고 "렸다"도 된다.
                     //그럴때 시작자로 처리하도록 임시로 지정하였다.
 
-                    if (B.IndexOf("거느") >= 0)
+                    if (B.IndexOf("거느") == 0)
                         //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
                         //"거"로하면 걸리는게 많아서 안된다.
                         sw.WriteLine(B
                             .Replace("거느린", "거느리ㄴ")
                             .Replace("거느리ㄴ", "거느리다")
                             );
-                    else if (B.IndexOf("내렸") >= 0)
+                    else if (B.IndexOf("내렸") == 0)
                         sw.WriteLine(B
                             .Replace("내렸다", "내려ㅆ다")
                             .Replace("내려ㅆ다", "내려다")
                             .Replace("내려다", "내리다")
                             );
-                    else if (B.IndexOf("낼") >= 0)
+                    else if (B.IndexOf("낼") == 0)
                         sw.WriteLine(B
                             .Replace("낼", "내ㄹ다")
                             .Replace("내ㄹ다", "내다")
                             );
-                    else if (B.IndexOf("달라") >= 0)
+                    else if (B.IndexOf("달라") == 0)
                         sw.WriteLine(B
                             .Replace("달라진다", "달라지ㄴ다")
                             .Replace("달라지ㄴ다", "달라지다")
                             );
-                    else if (B.IndexOf("달리") >= 0)
+                    else if (B.IndexOf("달리") == 0)
                         sw.WriteLine(B
                             .Replace("달리", "다르다")
                             );
-                    else if (B.IndexOf("막혀") >= 0)
+                    else if (B.IndexOf("막혀") == 0)
                         sw.WriteLine(B
                             .Replace("막혀", "막히다")
                             );
-                    else if (B.IndexOf("막히") >= 0)
+                    else if (B.IndexOf("막히") == 0)
                         sw.WriteLine(B
                             .Replace("막히지", "막히다")
                             .Replace("막히다", "막다")
                             );
-                    else if (B.IndexOf("많") >= 0)
+                    else if (B.IndexOf("많") == 0)
                         sw.WriteLine(B
                             .Replace("많기", "많다")
                             );
-                    else if (B.IndexOf("않") >= 0)
+                    else if (B.IndexOf("않") == 0)
                         sw.WriteLine(B
                             .Replace("않거나", "않다")
                             );
-                    else if (B.IndexOf("없") >= 0)
+                    else if (B.IndexOf("없") == 0)
                         sw.WriteLine(B
                             .Replace("없는건", "없는거ㄴ")
                             .Replace("없는거ㄴ", "없는거")
                             .Replace("없는거", "없는")
                             .Replace("없는", "없다")
                             );
-                    else if (B.IndexOf("의해") >= 0)
+                    else if (B.IndexOf("의해") == 0)
                         sw.WriteLine(B
                             .Replace("의해", "의하다")
                             );
 
-                    //끝자
+                    //중간자 혹은 끝자
+
                     //else if (B.IndexOf("기") >= 1)
                     //"많기"를 처리하지만 "조음기관"도 처리되므로 주석처리한다.
+                    //"많기"는 시작자 "많"으로 처리하기로 하였다.
                     //    sw.WriteLine(B
                     //        .Replace("기", "다")
                     //        );
@@ -178,6 +182,11 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("의", "")
                             );
+                    else if (B.IndexOf("이") >= 1)
+                        sw.WriteLine(B
+                            .Replace("이었던", "이었다")
+                            .Replace("이었다", "이다")
+                            );
                     else if (B.IndexOf("한") >= 1)
                         sw.WriteLine(B
                             .Replace("한게", "하ㄴ게")
@@ -190,6 +199,9 @@ namespace App11
                     //indexof는 자모순서로 배열하면 안된다. "돈과나다"라는 단어는 "과"먼저 처리되기 때문이다.
                     //언어규칙은 부정확하지만 동사를 우선 조사를 나중에 처리한다.
                     //조사 앞에는 중간자가 없고 뒤에는 항상 띄어쓰기가 오므로 조사 후처리가 정확하다고 본다.
+
+                    //동사 조사 라는 개념을 없앤다. 시작자 중간자 끝자를 기준으로 한다.
+                    //아니다. 조사는 항상 끝자로 오기 때문에 버리기 아깝다.
 
                     else if (B.IndexOf("가") >= 1)
                         sw.WriteLine(B
@@ -235,10 +247,7 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("와", "")
                             );
-                    else if (B.IndexOf("이") >= 1)
-                        sw.WriteLine(B
-                            .Replace("이", "")
-                            );
+                    
                     else if (B.IndexOf("은") >= 1)
                         sw.WriteLine(B
                             .Replace("은", "")
