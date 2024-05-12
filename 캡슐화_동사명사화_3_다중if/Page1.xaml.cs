@@ -77,13 +77,12 @@ namespace App11
                 //예를 들면 "생명이다." 라는 문장은
                 //if if 일 때 indexof에 "다"와 "이" 2번 있어서 "생명이", "생명이다"로 2번 처리되며
                 //if else if로 하면 "다"에서 "생명이다"로 한번만 처리되고 "이"는 생략된다.
-                
+
+                //if문의 순서상 시작자를 먼저 처리하고 조사를 끝자로 나중에 처리한다.
+
                 {
 
-                    //동사
-                    //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
-
-                    //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
+                    //시작자
 
                     //"거느린"을 "거느리ㄴ"으로 자모해체도 하였다.
                     //자모를 해체해두면 나중에 어휘를 중간에 추가삽입할 때 편리할 것이다.
@@ -91,15 +90,39 @@ namespace App11
                     //동사명사화이므로 동사가 탈락변형되거나 조사가 탈락된다.
                     //즉 동사부분과 조사부분만 처리하면 동사명사화가 된다.
 
+                    //다중if를 시작자로할지 끝자로할지 고민을 하였다.
+                    //예를들면 "내렸다"는 "내렸"도 되고 "렸다"도 된다.
+                    //그럴때 시작자로 처리하도록 임시로 지정하였다.
+
                     if (B.IndexOf("거느") >= 0)
+                        //시작자를 "거느"로 할지 "거"로할지 고민할 때 "거느"가 맞다고 본다.
+                        //"거"로하면 걸리는게 많아서 안된다.
                         sw.WriteLine(B
                             .Replace("거느린", "거느리ㄴ")
                             .Replace("거느리ㄴ", "거느리다")
                             );
-                    else if (B.IndexOf("다") >= 1)
+                    else if (B.IndexOf("내렸") >= 0)
                         sw.WriteLine(B
-                            .Replace("었다", "다")
-                            .Replace("이다", "")
+                            .Replace("내렸다", "내려ㅆ다")
+                            .Replace("내려ㅆ다", "내려다")
+                            .Replace("내려다", "내리다")
+                            );
+                    else if (B.IndexOf("달라") >= 0)
+                        sw.WriteLine(B
+                            .Replace("달라진다", "달라지ㄴ다")
+                            .Replace("달라지ㄴ다", "달라지다")
+                            );
+                    else if (B.IndexOf("막혀") >= 0)
+                        sw.WriteLine(B
+                            .Replace("막혀", "막히다")
+                            );
+                    else if (B.IndexOf("막히") >= 0)
+                        sw.WriteLine(B
+                            .Replace("막히지", "막히다")
+                            );
+                    else if (B.IndexOf("않") >= 0)
+                        sw.WriteLine(B
+                            .Replace("않거나", "않다")
                             );
                     else if (B.IndexOf("없") >= 0)
                         sw.WriteLine(B
@@ -107,6 +130,45 @@ namespace App11
                             .Replace("없는거ㄴ", "없는거")
                             .Replace("없는거", "없는")
                             .Replace("없는", "없다")
+                            );
+                    else if (B.IndexOf("의해") >= 0)
+                        sw.WriteLine(B
+                            .Replace("의해", "의하다")
+                            );
+
+                    //끝자
+                    else if (B.IndexOf("기") >= 1)
+                        sw.WriteLine(B
+                            .Replace("기", "다")
+                            );
+                    else if (B.IndexOf("다") >= 1)
+                        //끝자에서 "-다"를 처리해야 하므로 "다음" 이 단어는 소거되도록 값을 1 이상으로 한다.
+                        sw.WriteLine(B
+                            .Replace("었다", "다")
+                            .Replace("이다", "")
+                            );
+                    else if (B.IndexOf("란") >= 1)
+                        sw.WriteLine(B
+                            .Replace("란", "")
+                            );
+                    else if (B.IndexOf("만") >= 1)
+                        sw.WriteLine(B
+                            .Replace("만", "")
+                            );
+                    else if (B.IndexOf("에") >= 1)
+                        sw.WriteLine(B
+                            .Replace("에", "")
+                            );
+                    else if (B.IndexOf("의") >= 0)
+                        sw.WriteLine(B
+                            .Replace("의", "")
+                            );
+                    else if (B.IndexOf("한") >= 1)
+                        sw.WriteLine(B
+                            .Replace("한게", "하ㄴ게")
+                            .Replace("하ㄴ게", "하ㄴ")
+                            .Replace("한", "하ㄴ")
+                            .Replace("하ㄴ", "하다")
                             );
 
                     //조사
@@ -119,7 +181,7 @@ namespace App11
                             .Replace("가", "")
                             );
                     else if (B.IndexOf("과") >= 1)
-                        
+                        //"사과"라는 단어는 조사로 처리될 수 밖에 없다.
                         sw.WriteLine(B
                             .Replace("과", "")
                             );
@@ -129,6 +191,9 @@ namespace App11
                             );
                     else if (B.IndexOf("는") >= 1)
                         sw.WriteLine(B
+                            .Replace("라는", "")
+                            .Replace("에서는", "")
+                            //"에서는"은 끝자가 "는"이므로 "에서"가 아니라 "는"에서 처리한다.
                             .Replace("는", "")
                             );
                     else if (B.IndexOf("로") >= 1)
@@ -167,9 +232,71 @@ namespace App11
                         sw.WriteLine(B
                             .Replace("을", "")
                             );
+                    else if (B.IndexOf("적인") >= 1)
+                        sw.WriteLine(B
+                            .Replace("적인", "이다")
+                            );
                     else if (B.IndexOf("조차") >= 1)
                         sw.WriteLine(B
                             .Replace("조차", "")
+                            );
+
+                    //접속사
+                    else if (B.IndexOf("그리고") >= 1)
+                        sw.WriteLine(B
+                            .Replace("그리고", "")
+                            );
+                    else if (B.IndexOf("그런데") >= 1)
+                        sw.WriteLine(B
+                            .Replace("그런데", "")
+                            );
+                    else if (B.IndexOf("그러나") >= 1)
+                        sw.WriteLine(B
+                            .Replace("그러나", "")
+                            );
+                    else if (B.IndexOf("그래도") >= 1)
+                        sw.WriteLine(B
+                            .Replace("그래도", "")
+                            );
+                    else if (B.IndexOf("그래서") >= 1)
+                        sw.WriteLine(B
+                            .Replace("그래서", "")
+                            );
+                    else if (B.IndexOf("또는") >= 1)
+                        sw.WriteLine(B
+                            .Replace("또는", "")
+                            );
+                    else if (B.IndexOf("게다가") >= 1)
+                        sw.WriteLine(B
+                            .Replace("게다가", "")
+                            );
+                    else if (B.IndexOf("따라서") >= 1)
+                        sw.WriteLine(B
+                            .Replace("따라서", "")
+                            );
+                    else if (B.IndexOf("때문에") >= 1)
+                        sw.WriteLine(B
+                            .Replace("때문에", "")
+                            );
+                    else if (B.IndexOf("아니면") >= 1)
+                        sw.WriteLine(B
+                            .Replace("아니면", "")
+                            );
+                    else if (B.IndexOf("왜냐하면") >= 1)
+                        sw.WriteLine(B
+                            .Replace("왜냐하면", "")
+                            );
+                    else if (B.IndexOf("하지만") >= 1)
+                        sw.WriteLine(B
+                            .Replace("하지만", "")
+                            );
+                    else if (B.IndexOf("오히려") >= 1)
+                        sw.WriteLine(B
+                            .Replace("오히려", "")
+                            );
+                    else if (B.IndexOf("비록") >= 1)
+                        sw.WriteLine(B
+                            .Replace("비록", "")
                             );
                 }
 
