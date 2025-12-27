@@ -170,7 +170,7 @@ namespace App11
                                    .Replace("이기 ", "이다 ")
                                    .Replace("이나 ", " ")
                                    .Replace("이니 ", "이다 ")
-                                   .Replace("이다 ", " ")
+                                   //.Replace("이다 ", " ") "이다"라는 단어는 단순 동사이므로 소거하지 않는다.
                                    .Replace("이며 ", "이다 ")
                                    .Replace("이므 ", "이다 ")
                                    .Replace("인데 ", "이다 ")
